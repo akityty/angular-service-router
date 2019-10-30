@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {YoutubeService} from '../youtube.service';
 import {ActivatedRoute, ParamMap} from '@angular/router';
 import {Subscription} from 'rxjs';
-import {DomSanitizer} from '@angular/platform-browser';
+import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-youtube-player',
@@ -12,6 +12,7 @@ import {DomSanitizer} from '@angular/platform-browser';
 export class YoutubePlayerComponent implements OnInit, OnDestroy {
   song: any;
   sub: Subscription;
+  private xUrl: SafeResourceUrl;
   constructor(
     private youtubeService: YoutubeService,
     private activatedRouter: ActivatedRoute,
@@ -26,11 +27,11 @@ export class YoutubePlayerComponent implements OnInit, OnDestroy {
   }
   getSrc() {
     const url =  'https://www.youtube.com/embed/' + this.song.id;
-    return this.domSanitizer.bypassSecurityTrustResourceUrl(url);
+    this.xUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
   ngOnDestroy() {
-    this.sub.unsubscribe();
+ /*   this.sub.unsubscribe();*/
   }
 
 }
