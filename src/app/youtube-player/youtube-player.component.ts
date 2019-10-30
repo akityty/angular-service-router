@@ -26,6 +26,7 @@ export class YoutubePlayerComponent implements OnInit, OnDestroy {
   }
   getSrc() {
     const url =  'https://www.youtube.com/embed/' + this.song.id;
+    return this.domSanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
   ngOnDestroy() {
