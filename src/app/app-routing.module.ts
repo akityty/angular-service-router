@@ -3,13 +3,27 @@ import {Routes, RouterModule, PreloadAllModules} from '@angular/router';
 import {TimelinesComponent} from './timelines/timelines.component';
 import {YoutubePlaylistComponent} from './youtube-playlist/youtube-playlist.component';
 import {YoutubePlayerComponent} from './youtube-player/youtube-player.component';
+import {DictionaryPageComponent} from './dictionary-page/dictionary-page.component';
+import {DictionaryDetailComponent} from './dictionary-detail/dictionary-detail.component';
+import {AuthorGuard} from './author.guard';
 
 
 const routes: Routes = [
- /* {
+  {
     path: 'timelines',
     component: TimelinesComponent,
-  }*/
+  },
+  {
+    path: 'dictionary',
+    component: DictionaryPageComponent,
+    children: [
+      {
+        path: ':key',
+        component: DictionaryDetailComponent,
+        canActivate: [AuthorGuard]
+      }
+    ]
+  },
   {
     path: 'youtube',
     component: YoutubePlaylistComponent,
