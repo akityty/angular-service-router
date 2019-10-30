@@ -12,7 +12,6 @@ import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 export class YoutubePlayerComponent implements OnInit, OnDestroy {
   song: any;
   sub: Subscription;
-  private xUrl: SafeResourceUrl;
   constructor(
     private youtubeService: YoutubeService,
     private activatedRouter: ActivatedRoute,
@@ -27,11 +26,10 @@ export class YoutubePlayerComponent implements OnInit, OnDestroy {
   }
   getSrc() {
     const url =  'https://www.youtube.com/embed/' + this.song.id;
-    this.xUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
   ngOnDestroy() {
- /*   this.sub.unsubscribe();*/
+    this.sub.unsubscribe();
   }
 
 }
