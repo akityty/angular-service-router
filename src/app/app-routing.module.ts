@@ -6,6 +6,7 @@ import {YoutubePlayerComponent} from './youtube-player/youtube-player.component'
 import {DictionaryPageComponent} from './dictionary-page/dictionary-page.component';
 import {DictionaryDetailComponent} from './dictionary-detail/dictionary-detail.component';
 import {AuthorGuard} from './author.guard';
+import {DictionaryComponent} from './dictionary/dictionary.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'dictionary',
-    component: DictionaryPageComponent,
+    component: DictionaryComponent,
     children: [
       {
         path: ':key',

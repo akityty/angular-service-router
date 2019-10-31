@@ -10,7 +10,7 @@ import {DictionaryDetailComponent} from './dictionary-detail/dictionary-detail.c
 import {DictionaryPageComponent} from './dictionary-page/dictionary-page.component';
 import {DictionaryService} from './dictionary.service';
 import {ReactiveFormsModule} from '@angular/forms';
-import { TestRoutingModule } from './test-routing/test-routing.module';
+import { DictionaryComponent } from './dictionary/dictionary.component';
 
 @NgModule({
   declarations: [
@@ -19,13 +19,13 @@ import { TestRoutingModule } from './test-routing/test-routing.module';
     YoutubePlaylistComponent,
     YoutubePlayerComponent,
     DictionaryDetailComponent,
-    DictionaryPageComponent
+    DictionaryPageComponent,
+    DictionaryComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule,
-    TestRoutingModule
+    ReactiveFormsModule
   ],
   providers: [DictionaryService],
   bootstrap: [AppComponent]
